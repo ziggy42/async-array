@@ -11,9 +11,18 @@
     "array"
   ],
   "author": "Andrea Pivetta",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "eslint": "^6.1.0",
     "jest": "^24.8.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziggy42/async-array.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ziggy42/async-array/issues"
+  },
+  "homepage": "https://github.com/ziggy42/async-array#readme"
 }
