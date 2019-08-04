@@ -9,7 +9,7 @@ const existing = await AsyncArray.of(1, 2, 3)
 
 ## Installation
 ```bash
-npm install async-array
+npm install @ziggy42/async-array
 ```
 
 ## Usage
