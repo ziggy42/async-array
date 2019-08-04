@@ -55,7 +55,7 @@ const existing = await AsyncArray.of('1', '2', '3')
 ```
 
 Be aware that the async callbacks are executed in sequence, NOT in parallel.
-The following methods allow you to execute the callbacks in parallale instead:
+The following methods allow you to execute the callbacks in parallel instead:
 - `asyncFilterAll`
 - `asyncMapAll`
 
