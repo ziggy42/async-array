@@ -1,14 +1,10 @@
 # async-array
-`AsyncArray` is a class that inheriths from `Array` and adds methods with support for `async` callbacks such as 
+`AsyncArray` is a class that inheriths from `Array` and adds `async` methods with support for `async` callbacks such as 
 `asyncForEach`, `asyncMap` etc:
 
 ```js
-AsyncArray.of(1, 2, 3)
+const existing = await AsyncArray.of(1, 2, 3)
     .asyncFilter(async (id) => existsInDatabase(id))
-    .asyncForEach(async (id) => {
-        const item = await fetchById(id);
-        console.log(item);
-    })
 ```
 
 ## Installation
@@ -54,12 +50,16 @@ const arr = AsyncArray.of(1, 2, 3).toArray() // [ 1, 2, 3 ]
 These methods behave exactly like the non-async versions but they accept async callbacks.
 
 ```js
-AsyncArray.of('1', '2', '3')
-    .map((id) => parseInt(id))
+const existing = await AsyncArray.of('1', '2', '3')
     .asyncFilter(async (id) => existsInDatabase(id))
-    .asyncMap(async (id) => fetchInDatabase(id))
-    .map(({ id, name }) => ({ id, name }))
-    .forEach((item) => console.log(item))
 ```
 
 Be aware that the async callbacks are executed in sequence, NOT in parallel.
+The following methods allow you to execute the callbacks in parallale instead:
+- `asyncFilterAll`
+- `asyncMapAll`
+
+```js
+const existing = await AsyncArray.of(1, 2, 3)
+    .asyncFilterAll(async (id) => existsInDatabase(id))
+```

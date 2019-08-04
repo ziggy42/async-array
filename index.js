@@ -15,7 +15,7 @@ class AsyncArray extends Array {
     }
 
     static from(array) {
-        return new AsyncArray(...array);
+        return AsyncArray.of(...array);
     }
 
     toArray() {
@@ -115,6 +115,31 @@ class AsyncArray extends Array {
         const index = await this.findIndex(callback);
         return index !== -1;
     }
+
+    async asyncFilterAll(callback) {
+        const filtered = await Promise.all(this.map(callback));
+        return AsyncArray.from(this.filter((_, i) => filtered[i]));
+    }
+
+    async asyncMapAll(callback) {
+        const mapped = await Promise.all(this.map(callback));
+        return AsyncArray.from(mapped);
+    }
 }
 
 module.exports = AsyncArray;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
+
+(async () => {
+
+    const arr = await AsyncArray.of('1', '2', '3')
+        .map(i => parseInt(i))
+        .asyncFilter(async (i) => {
+            await sleep(1000);
+            return i !== 2;
+        })
+        .map((i) => i ** 2);
+
+    console.dir(arr, { colors: true });
+})();

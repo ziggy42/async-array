@@ -67,3 +67,13 @@ test('asyncSome', async () => {
     const result = await AsyncArray.of(1, 2, 3).asyncSome((item) => Promise.resolve(item === 2));
     expect(result).toBe(true);
 });
+
+test('asyncFilterAll', async () => {
+    const result = await AsyncArray.of(1, 2, 3).asyncFilterAll((item) => Promise.resolve(item % 2 === 0));
+    expect(result).toEqual(AsyncArray.of(2));
+});
+
+test('asyncMapAll', async () => {
+    const result = await AsyncArray.of(1, 2, 3).asyncMapAll((item) => Promise.resolve(item ** 2));
+    expect(result).toEqual(AsyncArray.of(1, 4, 9));
+});
