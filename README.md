@@ -4,8 +4,8 @@
 
 ```js
 AsyncArray.of(1, 2, 3)
-    .filter(async (id) => existsInDatabase(id))
-    .forEach(async (id) => {
+    .asyncFilter(async (id) => existsInDatabase(id))
+    .asyncForEach(async (id) => {
         const item = await fetchById(id);
         console.log(item);
     })
