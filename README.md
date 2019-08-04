@@ -23,7 +23,7 @@ const arr1 = new AsyncArray(1, 2, 3) // AsyncArray [ 1, 2, 3 ]
 const arr2 = new AsyncArray(3) // AsyncArray [ <3 empty items> ]
 ```
 
-There are also two static functions to create new `AsyncArray`:
+There are also two static functions to create new `AsyncArray` instances:
 ```js
 const arr1 = AsyncArray.of(1, 2, 3) // AsyncArray [ 1, 2, 3 ]
 
