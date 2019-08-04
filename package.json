@@ -1,0 +1,19 @@
+{
+  "name": "async-array",
+  "version": "1.0.0",
+  "description": "Use async functions in array methods",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "async",
+    "array"
+  ],
+  "author": "Andrea Pivetta",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "jest": "^24.8.0"
+  }
+}
