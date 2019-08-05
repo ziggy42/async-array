@@ -128,18 +128,3 @@ class AsyncArray extends Array {
 }
 
 module.exports = AsyncArray;
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
-
-(async () => {
-
-    const arr = await AsyncArray.of('1', '2', '3')
-        .map(i => parseInt(i))
-        .asyncFilter(async (i) => {
-            await sleep(1000);
-            return i !== 2;
-        })
-        .map((i) => i ** 2);
-
-    console.dir(arr, { colors: true });
-})();
