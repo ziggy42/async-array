@@ -1,6 +1,6 @@
 {
   "name": "@ziggy42/async-array",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use async functions in array methods",
   "main": "index.js",
   "scripts": {
